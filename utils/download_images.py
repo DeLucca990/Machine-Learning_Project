@@ -1,5 +1,5 @@
-import requests
 import pandas as pd
+import requests
 
 def download_image(url, file_name):
     try:
@@ -15,12 +15,11 @@ def download_image(url, file_name):
         print(f"Erro ao baixar a imagem: {e}")
 
 def main():
-    df = pd.read_excel('./Tables/dados_sem_listas.xlsx')
+    df = pd.read_excel('../Tables/dados_sem_listas.xlsx')
     for index, row in df.iterrows():
         if pd.notna(row['pictureUrl']):
-            download_image(row['pictureUrl'], f"./Images/img_{int(row['id'])}.jpg")
+            download_image(row['pictureUrl'], f"../images/img_{int(row['id'])}.jpg")
             print(f"Baixando imagem {index + 1} de {len(df)}")
-
 
 if __name__ == '__main__':
     main()
